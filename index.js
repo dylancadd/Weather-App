@@ -31,17 +31,17 @@ const getWeather = () => {
     let input = document.querySelector("#input").value;
   
     if (input.length == 5) {
-      let btn = document.querySelector('#button-2');
-      btn.setAttribute("data-toggle", "modal");
-      btn.setAttribute("data-target", "#myModal");
-      getCordinates();
+        let btn = document.querySelector('#button-2');
+        btn.setAttribute("data-toggle", "modal");
+        btn.setAttribute("data-target", "#myModal");
+        getCordinates();
     } else {
-      showErrorMessage();
-      document.querySelector('#input').focus();
+        showErrorMessage();
+        document.querySelector('#input').focus();
     }
-  }
+}
 
-  const showTemperature = temp => {
+const showTemperature = temp => {
 
     let div = document.createElement("div");
     let label = document.createElement("label");
@@ -72,6 +72,7 @@ const getWeather = () => {
     div.appendChild(label);
     div.appendChild(newImage);
     output.appendChild(div);
+
 }
 
 const showWind = windSpeed => {
@@ -105,35 +106,22 @@ const showWind = windSpeed => {
 }
 
 const getCordinates = async () => {
-    // let url = "http://api.geonames.org/postalCodeSearchJSON?username=dylancadd&countryCode=US&postalcode=" + document.querySelector("#input").value;;
+    let url = "http://api.geonames.org/postalCodeSearchJSON?username=dylancadd&countryCode=US&postalcode=" + document.querySelector("#input").value;;
 
-    // await fetch(url).then(data => data.json()).then(jsonData => {
+    await fetch(url).then(data => data.json()).then(jsonData => {
 
-    //     let latitude = jsonData.postalCodes[0].lat;
-    //     let longitude = jsonData.postalCodes[0].lng;
-    //     let name = jsonData.postalCodes[0].placeName;
-    //     let state = jsonData.postalCodes[0].adminCode1;
+        let latitude = jsonData.postalCodes[0].lat;
+        let longitude = jsonData.postalCodes[0].lng;
+        let name = jsonData.postalCodes[0].placeName;
+        let state = jsonData.postalCodes[0].adminCode1;
 
-    //     let coords = {"latitude": latitude, "longitude": longitude};
-    //     let location = `${name}, ${state}`;
+        let coords = {"latitude": latitude, "longitude": longitude};
+        let location = `${name}, ${state}`;
 
-    //     showLocation(location);
-    //     getWeatherInfo(coords);
+        showLocation(location);
+        getWeatherInfo(coords);
 
-    // })
-
-    await fetch("https://community-open-weather-map.p.rapidapi.com/find?type=link%252C%20accurate&units=imperial%252C%20metric&q=madison", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
-            "x-rapidapi-key": "8b3226e087msh119b6c51bdd946dp15c6c4jsn725bd4f4fb41"
-        }
     })
-    .then(data => data.json()).then(jsonData => {
-        console.log(jsonData)
-    })
-
-
 }
 
 const getWeatherInfo = async coords => {
@@ -153,21 +141,9 @@ const getWeatherInfo = async coords => {
 }
 
 const showLocation = location => {
-
     let spanText = document.querySelector("#spanText");
     spanText.innerHTML = `${location}`;
-  }
-
-
-
-
-
-
-
-
-
-
-
+}
 
 const validate = evt => {
     let theEvent = evt || window.event;
@@ -183,9 +159,9 @@ const validate = evt => {
     }
     let regex = /[0-9]|\../;
     if( !regex.test(key) ) {
-      theEvent.returnValue = false;
-      if(theEvent.preventDefault) theEvent.preventDefault();
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
     }
-  }
+}
 
 window.onload = init;

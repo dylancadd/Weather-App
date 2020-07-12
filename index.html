@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>Weather API</title>
 		<script src="index.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="index.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -10,36 +10,35 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	</head>
-	<body>
 
-		<div id="snackbar">Enter in a 5 digit zip code.</div>
+	<body>
+			<div id="snackbar">Enter in a 5 digit zip code.</div>
 		<div class="outer">
-		   <div class="middle">
-		     <div class="inner">
-		        <label for="">Zip Code</label>
-						<input type="text" class="w3-input" maxlength="5" value="" id="input" onkeypress="validate(event)" autofocus>
-						<div class="button" id="button-2">
-				  		<div id="slide"></div>
-				  		<a href="#">Get Weather Now</a>
-						</div>
-		     </div>
-		   </div>
+			<div class="middle">
+				<div class="inner">
+					<label for="">Zip Code</label>
+					<input type="text" class="w3-input" maxlength="5" value="" id="input" onkeypress="validate(event)" autofocus>
+					<div class="button" id="button-2">
+						<div id="slide"></div>
+						<a href="#">Get Weather Now</a>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div id="myModal" class="modal fade" role="dialog">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal">&times;</button>
-		        <h4 class="modal-title">Weather for <span id="spanText" ></span></h4>
-		      </div>
-		      <div class="modal-body"></div>
-		      <div class="modal-footer">
-		        <button type="button" id="close" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Weather for <span id="spanText" ></span></h4>
+					</div>
+					<div class="modal-body"></div>
+					<div class="modal-footer">
+						<button type="button" id="close" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
 		</div>
-
 	</body>
 </html>
