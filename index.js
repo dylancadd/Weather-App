@@ -106,7 +106,7 @@ const showWind = windSpeed => {
 }
 
 const getCordinates = async () => {
-    let url = "http://api.geonames.org/postalCodeSearchJSON?username=dylancadd&countryCode=US&postalcode=" + document.querySelector("#input").value;;
+    let url = "https://api.geonames.org/postalCodeSearchJSON?username=dylancadd&countryCode=US&postalcode=" + document.querySelector("#input").value;;
 
     await fetch(url).then(data => data.json()).then(jsonData => {
 
@@ -128,7 +128,7 @@ const getWeatherInfo = async coords => {
     let lat = coords.latitude;
     let lng = coords.longitude;
 
-    let url = `http://api.geonames.org/findNearByWeatherJSON?username=dylancadd&lat=${lat}&lng=${lng}`;
+    let url = `https://api.geonames.org/findNearByWeatherJSON?username=dylancadd&lat=${lat}&lng=${lng}`;
 
     await fetch(url).then(data => data.json()).then(jsonData => {
         let temp = jsonData.weatherObservation.temperature;
